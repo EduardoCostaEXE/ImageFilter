@@ -21,93 +21,93 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        secondaryMenu.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.5)
+        secondaryMenu.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         secondaryMenu.translatesAutoresizingMaskIntoConstraints = false
     }
 
     // MARK: Share
     @IBAction func onShare(sender: AnyObject) {
         let activityController = UIActivityViewController(activityItems: ["Check out our really cool app", imageView.image!], applicationActivities: nil)
-        presentViewController(activityController, animated: true, completion: nil)
+        present(activityController, animated: true, completion: nil)
     }
     
     // MARK: New Photo
     @IBAction func onNewPhoto(sender: AnyObject) {
-        let actionSheet = UIAlertController(title: "New Photo", message: nil, preferredStyle: .ActionSheet)
+        let actionSheet = UIAlertController(title: "New Photo", message: nil, preferredStyle: .actionSheet)
         
-        actionSheet.addAction(UIAlertAction(title: "Camera", style: .Default, handler: { action in
+        actionSheet.addAction(UIAlertAction(title: "Camera", style: .default, handler: { action in
             self.showCamera()
         }))
         
-        actionSheet.addAction(UIAlertAction(title: "Album", style: .Default, handler: { action in
+        actionSheet.addAction(UIAlertAction(title: "Album", style: .default, handler: { action in
             self.showAlbum()
         }))
         
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
-        self.presentViewController(actionSheet, animated: true, completion: nil)
+        self.present(actionSheet, animated: true, completion: nil)
     }
     
     func showCamera() {
         let cameraPicker = UIImagePickerController()
         cameraPicker.delegate = self
-        cameraPicker.sourceType = .Camera
+        cameraPicker.sourceType = .camera
         
-        presentViewController(cameraPicker, animated: true, completion: nil)
+        present(cameraPicker, animated: true, completion: nil)
     }
     
     func showAlbum() {
         let cameraPicker = UIImagePickerController()
         cameraPicker.delegate = self
-        cameraPicker.sourceType = .PhotoLibrary
+        cameraPicker.sourceType = .photoLibrary
         
-        presentViewController(cameraPicker, animated: true, completion: nil)
+        present(cameraPicker, animated: true, completion: nil)
     }
     
     // MARK: UIImagePickerControllerDelegate
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        dismissViewControllerAnimated(true, completion: nil)
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+    private func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        dismiss(animated: true, completion: nil)
+        if let image = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage {
             imageView.image = image
         }
     }
     
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        dismissViewControllerAnimated(true, completion: nil)
+    internal func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
     
     // MARK: Filter Menu
     @IBAction func onFilter(sender: UIButton) {
-        if (sender.selected) {
+        if (sender.isSelected) {
             hideSecondaryMenu()
-            sender.selected = false
+            sender.isSelected = false
         } else {
             showSecondaryMenu()
-            sender.selected = true
+            sender.isSelected = true
         }
     }
     
     func showSecondaryMenu() {
         view.addSubview(secondaryMenu)
         
-        let bottomConstraint = secondaryMenu.bottomAnchor.constraintEqualToAnchor(bottomMenu.topAnchor)
-        let leftConstraint = secondaryMenu.leftAnchor.constraintEqualToAnchor(view.leftAnchor)
-        let rightConstraint = secondaryMenu.rightAnchor.constraintEqualToAnchor(view.rightAnchor)
+        let bottomConstraint = secondaryMenu.bottomAnchor.constraint(equalTo: bottomMenu.topAnchor)
+        let leftConstraint = secondaryMenu.leftAnchor.constraint(equalTo: view.leftAnchor)
+        let rightConstraint = secondaryMenu.rightAnchor.constraint(equalTo: view.rightAnchor)
         
-        let heightConstraint = secondaryMenu.heightAnchor.constraintEqualToConstant(44)
+        let heightConstraint = secondaryMenu.heightAnchor.constraint(equalToConstant: 44)
         
-        NSLayoutConstraint.activateConstraints([bottomConstraint, leftConstraint, rightConstraint, heightConstraint])
+        NSLayoutConstraint.activate([bottomConstraint, leftConstraint, rightConstraint, heightConstraint])
         
         view.layoutIfNeeded()
         
         self.secondaryMenu.alpha = 0
-        UIView.animateWithDuration(0.4) {
+        UIView.animate(withDuration: 0.4) {
             self.secondaryMenu.alpha = 1.0
         }
     }
 
     func hideSecondaryMenu() {
-        UIView.animateWithDuration(0.4, animations: {
+        UIView.animate(withDuration: 0.4, animations: {
             self.secondaryMenu.alpha = 0
             }) { completed in
                 if completed == true {
