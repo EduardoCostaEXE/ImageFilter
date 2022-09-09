@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var btnCompare: UIButton!
     @IBOutlet weak var viewFilterList: UIView!
@@ -62,7 +62,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
 
     //TABLE VIEW
-
     @IBAction func showFilterTableView(_ sender: Any) {
         if (viewFilterList.isHidden == false){
             viewFilterList.isHidden = true
@@ -125,4 +124,57 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         filter.backgroundColor = color
         filter.isHidden = false
     }
+
+    //New Photo
+    @IBAction func newPhoto(_ sender: Any) {
+        let actionSheet = UIAlertController(title: "New Photo", message: nil, preferredStyle: .actionSheet)
+
+        actionSheet.addAction(UIAlertAction(
+            title: "Camera",
+            style: .default,
+            handler: nil
+        ))
+        actionSheet.addAction(UIAlertAction(
+            title: "Album",
+            style: .default,
+            handler: { action in self.showAlbum() }
+        ))
+        actionSheet.addAction(UIAlertAction(
+            title: "Cancel",
+            style: .cancel,
+            handler: nil
+        ))
+
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+
+    func showAlbum() {
+        let vc = UIImagePickerController()
+        vc.sourceType = .photoLibrary
+        vc.delegate = self
+        vc.allowsEditing = true
+        present(vc, animated: true)
+    }
+
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImageView, editingInfo: NSDictionary) {
+        dismiss(animated: true, completion: nil)
+
+        let selectedImage: UIImageView = image
+        imageToFilter = selectedImage
+    }
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+
+        if let image = info[UIImagePickerController.InfoKey(rawValue: "UIImagePickerControllerEditedImage")] as? UIImage {
+            imageToFilter.image = image
+        }
+
+        picker.dismiss(animated: true)
+
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+
 }

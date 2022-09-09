@@ -24,6 +24,9 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="New Photo" titleAlignment="center"/>
+                                        <connections>
+                                            <action selector="newPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y8N-yD-nQ6"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyE-fR-Fhc">
                                         <rect key="frame" x="103.5" y="6.5" width="103.5" height="31"/>
@@ -122,7 +125,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btnCompare" destination="iQ9-H8-BDV" id="EHs-ic-V4V"/>
+                        <outlet property="btnCompare" destination="iQ9-H8-BDV" id="6du-id-0Jd"/>
                         <outlet property="filter" destination="BjY-1m-EFH" id="go7-0h-NJw"/>
                         <outlet property="filterList" destination="wZJ-Hw-oIh" id="uDR-BC-LSy"/>
                         <outlet property="imageToFilter" destination="eGx-e8-ljg" id="T2H-Kt-SqE"/>
