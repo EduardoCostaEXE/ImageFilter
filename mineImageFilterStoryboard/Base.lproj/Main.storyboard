@@ -76,7 +76,6 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="ZI4-gm-mtI" secondAttribute="bottom" id="Hlp-IO-TEZ"/>
                                     <constraint firstAttribute="trailing" secondItem="ZI4-gm-mtI" secondAttribute="trailing" id="UK2-pT-dEO"/>
