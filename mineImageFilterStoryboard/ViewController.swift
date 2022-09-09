@@ -7,8 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var viewFilterList: UIView!
     @IBOutlet weak var filterList: UITableView!
     @IBOutlet weak var imageToFilter: UIImageView!
     @IBOutlet weak var filter: UIView!
@@ -27,8 +28,10 @@ class ViewController: UIViewController, UITableViewDataSource {
     func configureTableView() {
         filterList.register(UINib(nibName: "FilterTableViewCell", bundle: nil), forCellReuseIdentifier: filterCellId)
         filterList.dataSource = self
+        filterList.delegate = self
     }
 
+    //SHARE
     @IBAction func shareImage(_ sender: Any) {
         let activityController = UIActivityViewController(
             activityItems: [
@@ -40,6 +43,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         present(activityController, animated: true, completion: nil)
     }
 
+    //COMPARE
     @IBAction func showOriginalImage(_ sender: Any) {
         filter.isHidden = true
     }
@@ -57,6 +61,15 @@ class ViewController: UIViewController, UITableViewDataSource {
 
 
     //TABLE VIEW
+
+    @IBAction func showFilterTableView(_ sender: Any) {
+        if (viewFilterList.isHidden == false){
+            viewFilterList.isHidden = true
+        } else {
+            viewFilterList.isHidden = false
+        }
+    }
+
     func configureFilterList(){
         let yellow = Filter(name: "Yellow", color: #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1))
         filterArray.append(yellow)
@@ -85,7 +98,20 @@ class ViewController: UIViewController, UITableViewDataSource {
         cell.filterName.text = match.filterName
         cell.filterColor.backgroundColor = match.filterColor
 
+        cell.selectionStyle = .none
+
         return cell
     }
-}
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = indexPath.row
+        let matchcolor = filterArray[row].filterColor
+
+        setFilter(color: matchcolor)
+    }
+
+    func setFilter(color: UIColor){
+        filter.backgroundColor = color
+        filter.isHidden = false
+    }
+}

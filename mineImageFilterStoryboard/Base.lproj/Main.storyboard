@@ -30,6 +30,9 @@
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Filter"/>
+                                        <connections>
+                                            <action selector="showFilterTableView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W6m-pZ-ASb"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQ9-H8-BDV">
                                         <rect key="frame" x="207" y="6.5" width="103.5" height="31"/>
@@ -55,12 +58,12 @@
                                     <constraint firstAttribute="height" constant="44" id="iAs-p5-WsH"/>
                                 </constraints>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scenery" translatesAutoresizingMaskIntoConstraints="NO" id="eGx-e8-ljg">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="portrait" translatesAutoresizingMaskIntoConstraints="NO" id="eGx-e8-ljg">
                                 <rect key="frame" x="0.0" y="44" width="414" height="774"/>
                                 <color key="backgroundColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                             </imageView>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BjY-1m-EFH">
+                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BjY-1m-EFH">
                                 <rect key="frame" x="0.0" y="44" width="414" height="774"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZI4-gm-mtI">
@@ -81,7 +84,7 @@
                                     <constraint firstItem="ZI4-gm-mtI" firstAttribute="leading" secondItem="BjY-1m-EFH" secondAttribute="leading" id="cfG-FN-HXa"/>
                                 </constraints>
                             </view>
-                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKw-lX-orA">
+                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKw-lX-orA">
                                 <rect key="frame" x="20" y="708" width="374" height="100"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wZJ-Hw-oIh">
@@ -124,6 +127,7 @@
                         <outlet property="filter" destination="BjY-1m-EFH" id="go7-0h-NJw"/>
                         <outlet property="filterList" destination="wZJ-Hw-oIh" id="uDR-BC-LSy"/>
                         <outlet property="imageToFilter" destination="eGx-e8-ljg" id="T2H-Kt-SqE"/>
+                        <outlet property="viewFilterList" destination="vKw-lX-orA" id="7qh-Di-BNi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -132,7 +136,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="scenery" width="100" height="134"/>
+        <image name="portrait" width="400" height="600"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
