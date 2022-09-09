@@ -23,7 +23,7 @@
                                         <rect key="frame" x="0.0" y="6.5" width="103.5" height="31"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="New Photo"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="New Photo" titleAlignment="center"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dyE-fR-Fhc">
                                         <rect key="frame" x="103.5" y="6.5" width="103.5" height="31"/>
@@ -84,7 +84,7 @@
                                     <constraint firstItem="ZI4-gm-mtI" firstAttribute="leading" secondItem="BjY-1m-EFH" secondAttribute="leading" id="cfG-FN-HXa"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKw-lX-orA">
+                            <view hidden="YES" alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKw-lX-orA">
                                 <rect key="frame" x="20" y="708" width="374" height="100"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wZJ-Hw-oIh">
