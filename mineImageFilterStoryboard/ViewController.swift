@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var btnCompare: UIButton!
     @IBOutlet weak var viewFilterList: UIView!
     @IBOutlet weak var filterList: UITableView!
     @IBOutlet weak var imageToFilter: UIImageView!
@@ -109,7 +110,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let row = indexPath.row
         let matchcolor = filterArray[row].filterColor
 
-        setFilter(color: matchcolor)
+        //If re-click the button, remove the filter
+        if filter.backgroundColor == filterArray[row].filterColor{
+            filter.backgroundColor = .none
+            btnCompare.isEnabled = false
+            filter.isHidden = true
+        } else {
+            setFilter(color: matchcolor)
+            btnCompare.isEnabled = true
+        }
     }
 
     func setFilter(color: UIColor){

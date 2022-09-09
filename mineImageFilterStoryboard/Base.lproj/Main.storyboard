@@ -34,7 +34,7 @@
                                             <action selector="showFilterTableView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W6m-pZ-ASb"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQ9-H8-BDV">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQ9-H8-BDV">
                                         <rect key="frame" x="207" y="6.5" width="103.5" height="31"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
@@ -107,7 +107,6 @@
                         <constraints>
                             <constraint firstItem="eaF-Gf-kCh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2i7-2A-ts8"/>
                             <constraint firstItem="eaF-Gf-kCh" firstAttribute="top" secondItem="vKw-lX-orA" secondAttribute="bottom" constant="10" id="2tS-ui-31V"/>
-                            <constraint firstItem="eaF-Gf-kCh" firstAttribute="top" secondItem="BjY-1m-EFH" secondAttribute="bottom" constant="20" id="98B-pq-2Rr"/>
                             <constraint firstItem="eaF-Gf-kCh" firstAttribute="top" secondItem="eGx-e8-ljg" secondAttribute="bottom" id="9ly-5g-nne"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BjY-1m-EFH" secondAttribute="trailing" id="AO7-fq-aoH"/>
                             <constraint firstItem="eGx-e8-ljg" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="J0h-qA-kJ7"/>
@@ -123,6 +122,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnCompare" destination="iQ9-H8-BDV" id="EHs-ic-V4V"/>
                         <outlet property="filter" destination="BjY-1m-EFH" id="go7-0h-NJw"/>
                         <outlet property="filterList" destination="wZJ-Hw-oIh" id="uDR-BC-LSy"/>
                         <outlet property="imageToFilter" destination="eGx-e8-ljg" id="T2H-Kt-SqE"/>
