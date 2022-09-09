@@ -81,8 +81,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         filterArray.append(darkBlue)
         let red = Filter(name: "Red", color: #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
         filterArray.append(red)
-        let pink = Filter(name: "Pink", color: #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1))
+        let pink = Filter(name: "Pink", color: #colorLiteral(red: 1, green: 0.5409764051, blue: 0.8473142982, alpha: 1))
         filterArray.append(pink)
+        let gray = Filter(name: "Gray", color: #colorLiteral(red: 0.6642242074, green: 0.6642400622, blue: 0.6642315388, alpha: 1))
+        filterArray.append(gray)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
